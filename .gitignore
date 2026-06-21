@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+.pytest_cache/
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# Outputs (don't commit generated results)
+gturf_output/
+gturf_sensitivity/
+gturf_statistics/
+*_output/
+demo_run/
+**/figures/
+**/synthetic_data/
+
+# Data — never commit proprietary EURES / ESCO files
+*.xlsx
+*.parquet
+!examples/*.xlsx
+
+# OS
+.DS_Store

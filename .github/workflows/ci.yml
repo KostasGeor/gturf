@@ -1,0 +1,42 @@
+name: CI
+
+# Run the test suite on every push and pull request, across supported Python
+# versions. The tests use the built-in synthetic dataset, so no proprietary
+# data is required.
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install package with dev extras
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Run test suite
+        run: pytest tests/ -q
+
+      - name: Smoke-test the CLI on synthetic data
+        run: |
+          gturf-run --synthetic --output-dir ci_demo --top-m 12 --r-max 7 --runs-per-r 2
+          test -f ci_demo/figures/fig_reach_vs_r.png

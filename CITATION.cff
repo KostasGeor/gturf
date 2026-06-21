@@ -1,0 +1,55 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite both the software and the associated paper."
+title: "G-TURF: Optimising skill subset selection via TURF analysis and genetic algorithms"
+abstract: >-
+  A reproducible Python pipeline that turns a corpus of Online Job Advertisements
+  into compact, occupation-specific skill bundles maximising labour-market
+  coverage, combining Hierarchical Cumulative Voting over the ESCO taxonomy with
+  a Genetic-Algorithm-augmented TURF analysis.
+type: software
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/KostasGeor/gturf"
+keywords:
+  - TURF analysis
+  - genetic algorithm
+  - hierarchical cumulative voting
+  - ESCO
+  - skill prioritisation
+  - labour market intelligence
+  - software engineering skills
+authors:
+  - family-names: Georgiou
+    given-names: Konstantinos
+    affiliation: "Aristotle University of Thessaloniki"
+  - family-names: Mittas
+    given-names: Nikolaos
+    affiliation: "Democritus University of Thrace"
+  - family-names: Angelis
+    given-names: Lefteris
+    affiliation: "Aristotle University of Thessaloniki"
+preferred-citation:
+  type: article
+  title: "G-TURF: Optimising skill subset selection via TURF analysis and genetic algorithms"
+  year: 2026
+  authors:
+    - family-names: Georgiou
+      given-names: Konstantinos
+    - family-names: Mittas
+      given-names: Nikolaos
+    - family-names: Angelis
+      given-names: Lefteris
+references:
+  - type: conference-paper
+    title: "H-TURF: Detecting Optimal Green Software Engineering Skillsets Using TURF Analysis and Hierarchical Cumulative Voting"
+    year: 2025
+    collection-title: "Euromicro Conference on Software Engineering and Advanced Applications (SEAA)"
+    authors:
+      - family-names: Ntaoulas
+        given-names: Vasileios
+      - family-names: Georgiou
+        given-names: Konstantinos
+      - family-names: Mittas
+        given-names: Nikolaos
+      - family-names: Angelis
+        given-names: Lefteris
