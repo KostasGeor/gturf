@@ -1,6 +1,6 @@
 # G-TURF
 
-[![CI](https://github.com/KostasGeor/gturf/actions/workflows/ci.yml/badge.svg)](https://github.com/KostasGeor/gturf/actions/workflows/ci.yml)
+[![CI](https://github.com/your-org/gturf/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/gturf/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/)
 
@@ -52,7 +52,7 @@ Requires Python 3.9+.
 command-line tools (`gturf-run`, `gturf-sensitivity`, `gturf-statistics`):
 
 ```bash
-git clone https://github.com/KostasGeor/gturf.git
+git clone https://github.com/your-org/gturf.git
 cd gturf
 pip install -e .
 ```
@@ -285,6 +285,38 @@ where exhaustive search does not, while also extending to constrained or
 multi-objective bundle selection.
 
 ---
+
+## Web UI
+
+A [Gradio](https://gradio.app) web interface wraps the whole pipeline so you can
+run G-TURF from a browser — no command line needed.
+
+```bash
+pip install -r requirements-app.txt   # installs gturf + gradio
+python app.py                          # then open http://localhost:7860
+```
+
+The interface has three tabs:
+
+- **Pipeline** — upload an OJA file and ESCO mapping (or tick *Use synthetic demo
+  data*), tune every parameter with sliders, run HCV → TURF/GA, and view the
+  figures and reach summary. All outputs download as a single ZIP.
+- **Statistics** — 95% CI, Wilcoxon, and TOST equivalence analysis of the last run.
+- **Sensitivity** — sweep a GA hyperparameter and see how robust the reach is.
+
+Results are identical to the command-line tools — the UI is a thin wrapper around
+the same `gturf` package.
+
+### Docker / Hugging Face Spaces
+
+A `Dockerfile` is included for containerised deployment:
+
+```bash
+docker build -t gturf-app .
+docker run -p 7860:7860 gturf-app
+```
+
+The image exposes port 7860 and runs as-is on Hugging Face Spaces (Docker SDK).
 
 ## Reproducing the paper
 

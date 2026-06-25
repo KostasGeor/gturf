@@ -1,0 +1,4 @@
+# Web UI dependencies — installs the gturf package plus Gradio.
+# From the repo root:  pip install -r requirements-app.txt
+-e .
+gradio>=4.0
