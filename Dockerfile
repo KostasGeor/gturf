@@ -20,7 +20,7 @@ COPY gturf ./gturf
 RUN pip install --no-cache-dir -e . && pip install --no-cache-dir "gradio>=4.0"
 
 # App code
-COPY app.py ./
+COPY app.py gturf_ui_helpers.py ./
 
 EXPOSE 7860
 ENV GRADIO_SERVER_NAME=0.0.0.0
